@@ -26,9 +26,7 @@
 ## <span id=2-1>1.IPFS-search Requestments</span>
 
 Elasticsearch 6.x
-Elasticsearch 6.x
 
-RabbitMQ / AMQP server
 RabbitMQ / AMQP server
 
 ipfs
@@ -50,7 +48,6 @@ ipfs-search-frontend
 ### <span id=3-1>1）java检测</span>
 
 输入命令`java -version`查看是否已有java。若有则至2）安装es。
-输入命令`java -version`查看是否已有java。若有则至2）安装es。
 
 <!--参考`https://blog.csdn.net/mucaoyx/article/details/82949450`-->
 
@@ -71,7 +68,6 @@ tar -zxvf openjdk-14.0.2_linux-x64_bin.tar.gz -C /opt/java
 修改/etc/profile
 
 `vim /etc/profile`
-`vim /etc/profile`
 
 将下面代码写入/etc/profile
 
@@ -86,7 +82,6 @@ export PATH=${JAVA_HOME}/bin:${PATH}`
 source /etc/profile
 ```
 
-输入命令`java -version`查看是否已有java。
 输入命令`java -version`查看是否已有java。
 
 ### <span id=3-2>2）安装es</span>
@@ -206,13 +201,11 @@ apt-get update
 ```
 
 安装 RabbitMQ
-安装 RabbitMQ
 
 ```shell
 apt-get install rabbitmq-server  #安装成功自动启动
 ```
 
-查看、启动、停止、重启 RabbitMq状态命令
 查看、启动、停止、重启 RabbitMq状态命令
 
 ```bash
@@ -235,7 +228,6 @@ service rabbitmq-server restart    # 重启
 
 <!--参考`https://www.cnblogs.com/ycx95/p/11928510.html`-->
 
-输入命令`go version`查看go是否已安装。若已安装，跳至2）安装ipfs节点。
 输入命令`go version`查看go是否已安装。若已安装，跳至2）安装ipfs节点。
 
 下载压缩包
@@ -340,7 +332,6 @@ Gateway server listening on /ip4/127.0.0.1/tcp/8080
 ### <span id=3-5>1）检测maven</span>
 
 输入命令 `mvn -v`查看版本，若已安装，跳至2）安装ipfs-tika。
-输入命令 `mvn -v`查看版本，若已安装，跳至2）安装ipfs-tika。
 
 <!--参考`https://blog.csdn.net/qq_29695701/article/details/90705181`-->
 
@@ -370,7 +361,6 @@ echo "export PATH" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-检查是否安装成功`mvn -v`
 检查是否安装成功`mvn -v`
 
 若出现下面数据，则成功
