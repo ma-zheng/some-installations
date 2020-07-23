@@ -1,11 +1,34 @@
-# ipfs-search安装
+# <span id=1-1>ipfs-search安装</span>
+**Tables of Content**
+  * [1.IPFS-search Requestments](#2-1)
+  * [2.安装Elasticsearch](#2-2)
+    * [1）java检测](#3-1)
+    * [2）安装es](#3-2)
+  * [3.安装RabbitMQ](#2-3)
+  * [4.安装ipfs](#2-4)
+    * [1）检查go语言是否安装](#3-3)
+    * [2）安装ipfs节点](#3-4)
+  * [5.安装ipfs-tika](#2-5)
+    * [1）检测maven](#3-5)
+    * [2）安装ipfs-tika](#3-6)
+  * [6.安装ipfs-search](#2-6)
+  * [7.运行](#2-7)
+    * [1）本地启动](#3-7)
+    * [2）分布式启动](#3-8)
+  * [8.安装metadata-api、search-api和ipfs-search-frontend](#2-8)
+    * [1）安装nodejs](#3-9)
+    * [2）安装meta-api和search-api](#3-10)
+    * [3）安装ember-cli](#3-11)
+    * [4）安装ipfs-search-frontend](#3-12)
 
-[TOC]
 
-## 1.IPFS-search Requestments
+
+## <span id=2-1>1.IPFS-search Requestments</span>
 
 Elasticsearch 6.x
+Elasticsearch 6.x
 
+RabbitMQ / AMQP server
 RabbitMQ / AMQP server
 
 ipfs
@@ -22,10 +45,11 @@ ipfs-search-frontend
 
 
 
-## 2.安装Elasticsearch
+## <span id=2-2>2.安装Elasticsearch</span>
 
-### 1）java检测
+### <span id=3-1>1）java检测</span>
 
+输入命令`java -version`查看是否已有java。若有则至2）安装es。
 输入命令`java -version`查看是否已有java。若有则至2）安装es。
 
 <!--参考`https://blog.csdn.net/mucaoyx/article/details/82949450`-->
@@ -47,6 +71,7 @@ tar -zxvf openjdk-14.0.2_linux-x64_bin.tar.gz -C /opt/java
 修改/etc/profile
 
 `vim /etc/profile`
+`vim /etc/profile`
 
 将下面代码写入/etc/profile
 
@@ -62,8 +87,9 @@ source /etc/profile
 ```
 
 输入命令`java -version`查看是否已有java。
+输入命令`java -version`查看是否已有java。
 
-### 2）安装es
+### <span id=3-2>2）安装es</span>
 
 下载elasticsearch6.8，地址为
 
@@ -155,7 +181,7 @@ sysctl -p
 
 
 
-## 3.安装RabbitMQ
+## <span id=2-3>3.安装RabbitMQ</span>
 
 <!--摘自`https://blog.csdn.net/qq_22638399/article/details/81704372`-->
 
@@ -180,11 +206,13 @@ apt-get update
 ```
 
 安装 RabbitMQ
+安装 RabbitMQ
 
 ```shell
 apt-get install rabbitmq-server  #安装成功自动启动
 ```
 
+查看、启动、停止、重启 RabbitMq状态命令
 查看、启动、停止、重启 RabbitMq状态命令
 
 ```bash
@@ -201,12 +229,13 @@ service rabbitmq-server restart    # 重启
 
 
 
-## 4.安装ipfs
+## <span id=2-4>4.安装ipfs</span>
 
-### 1）检查go语言是否安装
+### <span id=3-3>1）检查go语言是否安装</span>
 
 <!--参考`https://www.cnblogs.com/ycx95/p/11928510.html`-->
 
+输入命令`go version`查看go是否已安装。若已安装，跳至2）安装ipfs节点。
 输入命令`go version`查看go是否已安装。若已安装，跳至2）安装ipfs节点。
 
 下载压缩包
@@ -255,7 +284,7 @@ go version
 go version go1.13.12 linux/amd64
 ```
 
-### 2）安装ipfs节点
+### <span id=3-4>2）安装ipfs节点</span>
 
 <!--摘自`https://docs.ipfs.io/install/command-line-quick-start/#install-ipfs`-->
 
@@ -306,10 +335,11 @@ Gateway server listening on /ip4/127.0.0.1/tcp/8080
 
 
 
-## 5.安装ipfs-tika
+## <span id=2-5>5.安装ipfs-tika</span>
 
-### 1）检测maven
+### <span id=3-5>1）检测maven</span>
 
+输入命令 `mvn -v`查看版本，若已安装，跳至2）安装ipfs-tika。
 输入命令 `mvn -v`查看版本，若已安装，跳至2）安装ipfs-tika。
 
 <!--参考`https://blog.csdn.net/qq_29695701/article/details/90705181`-->
@@ -341,6 +371,7 @@ source ~/.bashrc
 ```
 
 检查是否安装成功`mvn -v`
+检查是否安装成功`mvn -v`
 
 若出现下面数据，则成功
 
@@ -352,7 +383,7 @@ Default locale: en_HK, platform encoding: UTF-8
 OS name: "linux", version: "4.4.0-142-generic", arch: "amd64", family: "unix"
 ```
 
-### 2）安装ipfs-tika
+### <span id=3-6>2）安装ipfs-tika</span>
 
 克隆ipfs-tika项目
 
@@ -376,7 +407,7 @@ mvn exec:java -Dexec.mainClass="com.ipfssearch.ipfstika.App"
 
 
 
-## 6.安装ipfs-search
+## <span id=2-6>6.安装ipfs-search</span>
 
 克隆ipfs-search项目
 
@@ -398,11 +429,11 @@ go get ./...
 make
 ```
 
-## 7.运行
+## <span id=2-7>7.运行</span>
 
 ipfs-search依赖正确启动的RabbitMQ、Elasticsearch、IPFS和ipfs-tika。
 
-### 1）本地启动
+### <span id=3-7>1）本地启动</span>
 
 如果所有依赖都在本地，则在已启动RabbitMQ、Elasticsearch、IPFS和ipfs-tika（依赖ipfs）的情况下，在`~/ipfs-search`路径下执行下列命令
 
@@ -414,7 +445,7 @@ go run main.go sniff		# 运行ipfs sniffer
 go run main.go add QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv		# 将QmS4加入爬取队列
 ```
 
-### 2）分布式启动
+### <span id=3-8>2）分布式启动</span>
 
 <!--摘自`https://github.com/ipfs-search/ipfs-search`-->
 
@@ -435,9 +466,9 @@ ipfs-search -c config.yml sniff		# 启动ipfs sniff
 
 
 
-## 8.安装metadata-api、search-api和ipfs-search-frontend
+## <span id=2-8>8.安装metadata-api、search-api和ipfs-search-frontend</span>
 
-### 1）安装nodejs
+### <span id=3-9>1）安装nodejs</span>
 
 ```shell
 # 获取nodejs压缩包
@@ -453,7 +484,7 @@ sudo ln -s /usr/local/nodejs/bin/node /usr/local/bin/node
 sudo ln -s /usr/local/nodejs/bin/npm /usr/local/bin/npm
 ```
 
-### 2）安装meta-api和search-api
+### <span id=3-10>2）安装meta-api和search-api</span>
 
 ```shell
 # 克隆项目
@@ -468,7 +499,7 @@ npm install
 npm start
 ```
 
-### 3）安装ember-cli
+### <span id=3-11>3）安装ember-cli</span>
 
 ```shell
 # 使用npm下载最新ember-cli
@@ -479,7 +510,7 @@ ln -s /usr/local/nodejs/bin/ember /usr/bin/ember
 sudo ember -v
 ```
 
-### 4）安装ipfs-search-frontend
+### <span id=3-12>4）安装ipfs-search-frontend</span>
 
 ```shell
 # 下载ipfs-search-frontend
@@ -491,3 +522,6 @@ npm install
 ember serve
 ```
 
+
+
+[**Back to Top**](#1-1)
