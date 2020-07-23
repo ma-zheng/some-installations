@@ -20,8 +20,7 @@
     * [2）安装meta-api和search-api](#3-10)
     * [3）安装ember-cli](#3-11)
     * [4）安装ipfs-search-frontend](#3-12)
-
-
+  * [Reference](#2-9)
 
 ## <span id=2-1>1.IPFS-search Requestments</span>
 
@@ -49,8 +48,6 @@ ipfs-search-frontend
 
 输入命令`java -version`查看是否已有java。若有则至2）安装es。
 
-<!--参考`https://blog.csdn.net/mucaoyx/article/details/82949450`-->
-
 如果没有java，下载jdk（最低应该是版本8，本例使用jdk14）。
 
 ```
@@ -73,7 +70,7 @@ tar -zxvf openjdk-14.0.2_linux-x64_bin.tar.gz -C /opt/java
 
 ```shell
 export JAVA_HOME=/opt/java/jdk-14.0.2
-export PATH=${JAVA_HOME}/bin:${PATH}`
+export PATH=${JAVA_HOME}/bin:${PATH}
 ```
 
 使新的/etc/profile生效
@@ -156,8 +153,6 @@ ES安装完成。
 max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 ```
 
-<!--摘自https://blog.csdn.net/educast/article/details/90647309-->
-
 ```shell
 vim /etc/sysctl.conf 
 ```
@@ -177,8 +172,6 @@ sysctl -p
 
 
 ## <span id=2-3>3.安装RabbitMQ</span>
-
-<!--摘自`https://blog.csdn.net/qq_22638399/article/details/81704372`-->
 
 由于rabbitMq需要erlang语言的支持，在安装rabbitMq之前需要安装erlang，执行命令：
 
@@ -225,8 +218,6 @@ service rabbitmq-server restart    # 重启
 ## <span id=2-4>4.安装ipfs</span>
 
 ### <span id=3-3>1）检查go语言是否安装</span>
-
-<!--参考`https://www.cnblogs.com/ycx95/p/11928510.html`-->
 
 输入命令`go version`查看go是否已安装。若已安装，跳至2）安装ipfs节点。
 
@@ -277,8 +268,6 @@ go version go1.13.12 linux/amd64
 ```
 
 ### <span id=3-4>2）安装ipfs节点</span>
-
-<!--摘自`https://docs.ipfs.io/install/command-line-quick-start/#install-ipfs`-->
 
 下载压缩包
 
@@ -333,8 +322,6 @@ Gateway server listening on /ip4/127.0.0.1/tcp/8080
 
 输入命令 `mvn -v`查看版本，若已安装，跳至2）安装ipfs-tika。
 
-<!--参考`https://blog.csdn.net/qq_29695701/article/details/90705181`-->
-
 下载压缩包
 
 ```shell
@@ -381,8 +368,6 @@ OS name: "linux", version: "4.4.0-142-generic", arch: "amd64", family: "unix"
 git clone https://github.com/ipfs-search/ipfs-tika
 ```
 
-<!--摘自`https://github.com/ipfs-search/ipfs-tika`-->
-
 编译
 
 ```shell
@@ -404,8 +389,6 @@ mvn exec:java -Dexec.mainClass="com.ipfssearch.ipfstika.App"
 ```shell
 git clone https://github.com/ipfs-search/ipfs-search.git
 ```
-
-<!--摘自`https://github.com/ipfs-search/ipfs-search`-->
 
 建立go工程
 
@@ -436,8 +419,6 @@ go run main.go add QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv		# 将QmS4加�
 ```
 
 ### <span id=3-8>2）分布式启动</span>
-
-<!--摘自`https://github.com/ipfs-search/ipfs-search`-->
 
 生成默认配置文件
 
@@ -512,6 +493,28 @@ npm install
 ember serve
 ```
 
-
-
 [**Back to Top**](#1-1)
+
+
+
+## <span id=2-9>Reference</span>
+
+https://blog.csdn.net/mucaoyx/article/details/82949450
+
+https://blog.csdn.net/educast/article/details/90647309
+
+https://blog.csdn.net/qq_22638399/article/details/81704372
+
+https://www.cnblogs.com/ycx95/p/11928510.html
+
+https://docs.ipfs.io/install/command-line-quick-start/#install-ipfs
+
+https://blog.csdn.net/qq_29695701/article/details/90705181
+
+https://github.com/ipfs-search/ipfs-tika
+
+https://github.com/ipfs-search/ipfs-search
+
+https://github.com/ipfs-search/ipfs-search
+
+
